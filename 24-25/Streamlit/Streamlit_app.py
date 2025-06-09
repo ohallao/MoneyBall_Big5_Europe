@@ -37,8 +37,8 @@ def normalizar_valores(valores):
 
 # Carregar os dados automaticamente do GitHub
 def carregar_dados_github():
-    base_url = "https://raw.githubusercontent.com/ohallao/MoneyBall-Brasileirao/main/Output_Cluster/"
-    arquivos = ["Gol_clusters_full.csv", "Mei_clusters_full.csv", "Ponta_clusters_full.csv", "vol_clusters_full.csv", "Zag_clusters_full.csv", "Lat_clusters_full.csv", "striker_clusters_full.csv"]
+    base_url = "https://raw.githubusercontent.com/ohallao/MoneyBall_Big5_Europe/main/24-25/Output_Cluster/"
+    arquivos = ["gol_data.csv", "Attacking_Midfielder_data.csv", "Winger_data.csv", "Defensive_Midfielder_data.csv", "Defender_data.csv", "FullBack_data.csv", "striker_data.csv"]
     
     dfs = []
     for arquivo in arquivos:
@@ -53,7 +53,7 @@ def carregar_dados_github():
 
 df = carregar_dados_github()
 
-st.title("MoneyBall Brasileirao - Análise por Posição")
+st.title("MoneyBall Top 5 Europe Leagues - Análise por Posição")
 
 if df.empty:
     st.error("Não foi possível carregar os dados. Verifique os arquivos no GitHub.")
