@@ -22,6 +22,12 @@ def carregar_dados_github():
         url = base_url + arquivo
         try:
             df = pd.read_csv(url)
+
+            # Adiciona a coluna "Position" com base no nome do arquivo, se não existir
+            if "Position" not in df.columns:
+                posicao = arquivo.replace("_data.csv", "").replace("_", " ")
+                df["Position"] = posicao
+
             dfs.append(df)
         except Exception as e:
             st.error(f"Erro ao carregar {arquivo}: {e}")
